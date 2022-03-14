@@ -21,18 +21,30 @@ public class Carro {
     // DEPOIS QUE O CARRO FOR VENDIDO FICARÁ INDISPONIVEL
     //E DEVE TER O NOME DO VENDEDOR E VALOR DA VENDA ARMAZENADOS.
 
+    public Carro() {
+        this.placa = placa;
+        this.ano = ano;
+        this.modelo = modelo;
+        this.valorDaCompra = valorDaCompra;
+        this.disponibilidade = true;
+        this.vendedor = "";
+    }
+
+    
+    
+    
+    
     // <METODOS>
     //Retorna true se o carro está disponível, ou seja, ainda não foi vendido.
     //Retorna false se o carro já foi vendido.
     //Quando é criada uma instancia de um carro, ele começa disponível e o nome do vendedor fica em branco.
     public boolean disponivel() {
-        if(disponibilidade) {
-            return true;
-        } else {
-            return false;
-        }
+        return disponibilidade;
     }
 
+    public void setDisponibilidade(Boolean disponibilidade) {
+        this.disponibilidade = disponibilidade;
+    }
     public boolean oferta(double valorParaVenda) {
 
         if(valorParaVenda > valorDaCompra) {
