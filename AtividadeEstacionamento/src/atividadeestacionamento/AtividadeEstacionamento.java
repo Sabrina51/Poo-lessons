@@ -15,6 +15,8 @@ public class AtividadeEstacionamento {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Carro carroUm = new Carro();
+        System.out.println("teste");
     }
     
 }
