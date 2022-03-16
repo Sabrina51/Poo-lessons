@@ -9,7 +9,7 @@ public class Carro {
     // QUE COISAS EU TENHO? (ATRIBUTOS)
     private String placa, modelo, nomeDoVendedor;
     private Integer anoDeFabricacao;
-    private Double valorQueALojaComprou, valorOfertadoParaComprarDaLoja, porcentagemParaComissao;
+    private Double valorQueALojaComprou, valorOfertadoParaComprarDaLoja, porcentagemParaComissao, valorDaComissao;
     private Boolean disponibilidade;
 
     // QUE COISAS EU FAÇO? (MÉTODOS)
@@ -18,13 +18,10 @@ public class Carro {
     }
 
     public Carro() {
-        this.placa = placa;
-        this.modelo = modelo;
-        this.nomeDoVendedor = "";
-        this.anoDeFabricacao = anoDeFabricacao;
-        this.valorQueALojaComprou = valorQueALojaComprou;
-        this.valorOfertadoParaComprarDaLoja = valorOfertadoParaComprarDaLoja;
-        this.porcentagemParaComissao = porcentagemParaComissao;
+        this.placa = "ABC-1234";
+        this.modelo = "1001ex";
+        this.anoDeFabricacao = 2012;
+        this.valorQueALojaComprou = 500.00;
         this.disponibilidade = true;
     }
     
@@ -45,19 +42,35 @@ public class Carro {
     
     public Double calculoDaComissao(Double porcentagemParaComissao) {
         if (!disponibilidade) {
-            return valorOfertadoParaComprarDaLoja - valorQueALojaComprou * porcentagemParaComissao;
+            valorDaComissao = (valorOfertadoParaComprarDaLoja - valorQueALojaComprou) * porcentagemParaComissao / 100;
+            return valorDaComissao;
         } else {
-            return 0.0;
+            return valorDaComissao = 0.0;
         }
     }
     
     public void mostrarRelatorio() {
-        System.out.println(
-            "Placa do carro:" + placa + "/n" +
-            "Modelo do carro:" + modelo + "/n" +
-            "Ano de fabricação:" + anoDeFabricacao + "/n" +
-            "Valor pago na aquisição pela loja" + valorQueALojaComprou + "/n" +
+        if (disponibilidade) {
+            System.out.println(
+            "Placa do carro: " + this.placa + "\n" +
+            "Modelo do carro: " + modelo + "\n" +
+            "Ano de fabricação: " + anoDeFabricacao + "\n" +
+            "Valor pago na aquisição: R$" + valorQueALojaComprou + "\n" +
             "Disponibilidade do veículo: " + disponibilidade
-        );
+            );
+        }
+        if (!disponibilidade) {
+            System.out.println(
+            "Placa do carro: " + placa + "\n" +
+            "Modelo do carro: " + modelo + "\n" +
+            "Ano de fabricação: " + anoDeFabricacao + "\n" +
+            "Valor pago na aquisição pela loja: R$" + valorQueALojaComprou + "\n" +
+            "Valor da venda: R$" + valorOfertadoParaComprarDaLoja + "\n" +  
+            "Nome do Vendedor: " + nomeDoVendedor + "\n" +  
+            "Comissão: RS" + valorDaComissao + "\n" +  
+            "Disponibilidade do veículo: " + disponibilidade
+            );
+        }
+        
     }
 }
