@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package atividadeestacionamento;
 
 /**
@@ -10,80 +6,58 @@ package atividadeestacionamento;
  */
 public class Carro {
 
-    private String placa;
-    private String ano;
-    private String modelo;
-    private Float valorDaCompra;
-    private Float valorParaVenda;
+    // QUE COISAS EU TENHO? (ATRIBUTOS)
+    private String placa, modelo, nomeDoVendedor;
+    private Integer anoDeFabricacao;
+    private Double valorQueALojaComprou, valorOfertadoParaComprarDaLoja, porcentagemParaComissao;
     private Boolean disponibilidade;
-    private String vendedor;
-    private Double porcentagem;
-    // DEPOIS QUE O CARRO FOR VENDIDO FICARÁ INDISPONIVEL
-    //E DEVE TER O NOME DO VENDEDOR E VALOR DA VENDA ARMAZENADOS.
 
-    public Carro() {
-        this.placa = placa;
-        this.ano = ano;
-        this.modelo = modelo;
-        this.valorDaCompra = valorDaCompra;
-        this.disponibilidade = true;
-        this.vendedor = "";
-    }
-
-    
-    
-    
-    
-    // <METODOS>
-    //Retorna true se o carro está disponível, ou seja, ainda não foi vendido.
-    //Retorna false se o carro já foi vendido.
-    //Quando é criada uma instancia de um carro, ele começa disponível e o nome do vendedor fica em branco.
-    public boolean disponivel() {
+    // QUE COISAS EU FAÇO? (MÉTODOS)
+    public Boolean estouDisponivel() {
         return disponibilidade;
     }
 
-    public void setDisponibilidade(Boolean disponibilidade) {
-        this.disponibilidade = disponibilidade;
+    public Carro() {
+        this.placa = placa;
+        this.modelo = modelo;
+        this.nomeDoVendedor = "";
+        this.anoDeFabricacao = anoDeFabricacao;
+        this.valorQueALojaComprou = valorQueALojaComprou;
+        this.valorOfertadoParaComprarDaLoja = valorOfertadoParaComprarDaLoja;
+        this.porcentagemParaComissao = porcentagemParaComissao;
+        this.disponibilidade = true;
     }
-    public boolean oferta(double valorParaVenda) {
+    
+    public Boolean ofertaParaMecomprarOCarro(Double valorOfertadoParaComprarDaLoja) {
+        return valorOfertadoParaComprarDaLoja > (valorQueALojaComprou + valorQueALojaComprou * 0.10) ? true : false;
+    }
 
-        if(valorParaVenda > valorDaCompra) {
-            //Retorna true se o valor ofertado para o carro é aceitável.
-            //Um valor é aceitável se for pelo menos 10% maior que o preço de compra.
-            return true;
-        } else {
+    public Boolean venderOCarro(String nomeDoVendedor, Double valorOfertadoParaComprarDaLoja) {
+        if (!disponibilidade || !ofertaParaMecomprarOCarro(valorOfertadoParaComprarDaLoja)) {
             return false;
+        } else {
+            this.nomeDoVendedor = nomeDoVendedor;
+            this.valorOfertadoParaComprarDaLoja = valorOfertadoParaComprarDaLoja;
+            this.disponibilidade = false;
+            return true;
         }
     }
-
-    public boolean venderCarro(String vendedor, Double valorParaVenda) {
-        
-        /*
-        Vende o carro. O carro passa a ser marcado como vendido (não disponível)
-        e o nome do vendedor e o valor de venda são armazenados. Retorna false (e não faz nada) se:
-        1) O valor de venda não é aceitável.
-        2) O carro já tinha sido vendido antes.
-         */
-        return true;
+    
+    public Double calculoDaComissao(Double porcentagemParaComissao) {
+        if (!disponibilidade) {
+            return valorOfertadoParaComprarDaLoja - valorQueALojaComprou * porcentagemParaComissao;
+        } else {
+            return 0.0;
+        }
     }
     
-    public double comissao(Double porcentagem){
-        /*
-        Apenas para carros já vendidos. Retorna a comissão do vendedor.
-        A comissão é calculada aplicando a porcentagem indicada no
-        parâmetro na diferença entre o preço de venda e o preço de compra.
-        Se o carro ainda não foi vendido, retorna zero
-        */ 
-        
-        return 5;
-    }
-    
-    public void impremirRelatorio(){
-        /*
-        Imprime todos os atributos do carro na saída padrão.
-        Deve informar também se o carro está disponível ou se foi vendido.
-        Caso o carro já tenha sido vendido, informar também o
-        nome do vendedor e a comissão que tem direit
-        */
+    public void mostrarRelatorio() {
+        System.out.println(
+            "Placa do carro:" + placa + "/n" +
+            "Modelo do carro:" + modelo + "/n" +
+            "Ano de fabricação:" + anoDeFabricacao + "/n" +
+            "Valor pago na aquisição pela loja" + valorQueALojaComprou + "/n" +
+            "Disponibilidade do veículo: " + disponibilidade
+        );
     }
 }
