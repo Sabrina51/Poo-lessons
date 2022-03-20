@@ -67,7 +67,7 @@ public class Carro {
             "Valor pago na aquisição pela loja: R$" + valorQueALojaComprou + "\n" +
             "Valor da venda: R$" + valorOfertadoParaComprarDaLoja + "\n" +  
             "Nome do Vendedor: " + nomeDoVendedor + "\n" +  
-            "Comissão: RS" + valorDaComissao + "\n" +  
+            "Comissão: R$" + valorDaComissao + "\n" +  
             "Disponibilidade do veículo: " + disponibilidade
             );
         }
