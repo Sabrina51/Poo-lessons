@@ -26,7 +26,7 @@ public class Assistente extends Aluno{
     public void dadosAlunoAssistente() {
         System.out.println(
             "----- Aluno Assistente -----" + "\n" +
-            "Nome do aluno: " + getNome() + "\n" +
+            "Nome do aluno(a): " + getNome() + "\n" +
             "RA: " + getRa() + "\n" + 
             "RG: " + getRg() + "\n" +
             "Quantidade de faltas: " + new DecimalFormat("").format(faltas) + "\n" +

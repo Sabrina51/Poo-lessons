@@ -39,7 +39,7 @@ public class Regular extends Aluno{
     public void dadosAlunoRegular() {
         System.out.println(
             "----- Aluno Regular -----" + "\n" +
-            "Nome do aluno: " + getNome() + "\n" +
+            "Nome do aluno(a): " + getNome() + "\n" +
             "RA: " + getRa() + "\n" + 
             "RG: " + getRg() + "\n" +
             "Nota 1: " + notaUm + "\n" +
