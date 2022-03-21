@@ -1,26 +1,26 @@
 package heranca;
 
-import java.text.DecimalFormat;
+//import java.text.DecimalFormat;
 
 public class Assistente extends Aluno {
 
-    private Double faltas;
+    private Integer faltas;
 
-    public Assistente(Double faltas, String nome, String rg, String ra) {
+    public Assistente(Integer faltas, String nome, String rg, String ra) {
         super(nome, rg, ra);
         this.faltas = faltas;
     }
 
-    public Double getFaltas() {
+    public Integer getFaltas() {
         return faltas;
     }
 
-    public void setFaltas(Double faltas) {
+    public void setFaltas(Integer faltas) {
         this.faltas = faltas;
     }
 
     public Double calculoFrequencia() {
-        return 100 - (faltas * 100 / 80);
+        return 100 - (faltas * 100.0 / 80);
     }
 
 //    public void dadosAlunoAssistente() {
@@ -38,8 +38,9 @@ public class Assistente extends Aluno {
         System.out.println("----- Aluno Assistente ----- \n");
         super.print();
         System.out.println(
-            "Quantidade de faltas: " + new DecimalFormat("").format(faltas) + "\n"
-            + "Porcentagem de frequência: " + calculoFrequencia() + "%" + "\n"
+//          "Quantidade de faltas: " + new DecimalFormat("").format(faltas) + "\n" +
+            "Quantidade de faltas: " + faltas + "\n" +
+            "Porcentagem de frequência: " + calculoFrequencia() + "%" + "\n"
         );
     }
 }

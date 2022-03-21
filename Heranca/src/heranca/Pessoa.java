@@ -1,32 +1,27 @@
 package heranca;
 
-public class Pessoa 
-{
+public class Pessoa {
+
     private String nome, rg;
 
-    public Pessoa(String nome, String rg) 
-    {
+    public Pessoa(String nome, String rg) {
         this.nome = nome;
         this.rg = rg;
     }
 
-    public String getNome() 
-    {
+    public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) 
-    {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public String getRg() 
-    {
+    public String getRg() {
         return rg;
     }
 
-    public void setRg(String rg) 
-    {
+    public void setRg(String rg) {
         this.rg = rg;
     }
 }
