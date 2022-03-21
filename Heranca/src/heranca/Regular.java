@@ -14,8 +14,6 @@ public class Regular extends Aluno{
         this.notaDois = notaDois;
     }
 
-   
-
     public Double getNotaUm() {
         return notaUm;
     }
@@ -36,12 +34,23 @@ public class Regular extends Aluno{
         return (notaUm + notaDois) / 2;
     }
     
-    public void dadosAlunoRegular() {
+//    public void dadosAlunoRegular() {
+//        System.out.println(
+//            "----- Aluno Regular -----" + "\n" +
+//            "Nome do aluno(a): " + getNome() + "\n" +
+//            "RA: " + getRa() + "\n" + 
+//            "RG: " + getRg() + "\n" +
+//            "Nota 1: " + notaUm + "\n" +
+//            "Nota 2: " + notaDois + "\n" +
+//            "Média final: " + calculoMedia() + "\n"
+//        );
+//    }
+    
+    @Override
+    public void print() {
+        System.out.println("----- Aluno Regular ----- \n");
+        super.print();
         System.out.println(
-            "----- Aluno Regular -----" + "\n" +
-            "Nome do aluno(a): " + getNome() + "\n" +
-            "RA: " + getRa() + "\n" + 
-            "RG: " + getRg() + "\n" +
             "Nota 1: " + notaUm + "\n" +
             "Nota 2: " + notaDois + "\n" +
             "Média final: " + calculoMedia() + "\n"
