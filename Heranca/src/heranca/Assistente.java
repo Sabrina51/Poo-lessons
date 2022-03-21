@@ -35,7 +35,7 @@ public class Assistente extends Aluno {
 //    }
     @Override
     public void print() {
-        System.out.println("----- Aluno Assistente ----- \n");
+        System.out.println("----- Aluno Assistente ----- ");
         super.print();
         System.out.println(
 //          "Quantidade de faltas: " + new DecimalFormat("").format(faltas) + "\n" +

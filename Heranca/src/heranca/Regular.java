@@ -44,7 +44,7 @@ public class Regular extends Aluno{
     
     @Override
     public void print() {
-        System.out.println("----- Aluno Regular ----- \n");
+        System.out.println("----- Aluno Regular ----- ");
         super.print();
         System.out.println(
             "Nota 1: " + notaUm + "\n" +
